@@ -2,9 +2,9 @@ def split(D, N):
 	'''
 	Prints how many amoebas there are up to N iterations in a D dimensional grid.
 		Andrew's Amoeba Problem:
-			Consider a D-dimensional grid of points. A amoeba in cube X = (x_1, x_2, x_3, x_4, ..., x_D)
+			Consider a D-dimensional grid of points. A amoeba on point X = (x_1, x_2, x_3, x_4, ..., x_D)
 			can divide itself into D amoeba(s) to occupy points (x_1 + 1, x_2, ..., x_D), 
-			(x_1, x_2 + 1, x_3, ..., x_D), ..., (x_1, x_2, ..., x_D +1); provided these cubes are empty
+			(x_1, x_2 + 1, x_3, ..., x_D), ..., (x_1, x_2, ..., x_D +1); provided these points are empty
 			and exactly only 1 amoeba splits into these points (i.e. if >1 amoebas split into the same point
 			no amoeba can grow there). In addition, an amoeba dies after splitting.
 
@@ -62,6 +62,8 @@ def split(D, N):
 
 # Helper function to add 1 to a given point at  given x_index
 def shift_1(tup, index=0):
+	assert isinstance(tup, tuple), str(tup)+" is not of type tuple"
+	assert index >=0, 'index is not >=0'
 	return tuple((tup[i] + 1 
 			   	if i == index 
 				else tup[i] 
