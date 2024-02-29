@@ -1,4 +1,5 @@
-def split(D, N):
+import numpy as np
+def split(D: int, N: int) -> list:
 	'''
 	Prints how many amoebas there are up to N iterations in a D dimensional grid.
 		Andrew's Amoeba Problem:
@@ -18,7 +19,7 @@ def split(D, N):
 			What about S_D(1020)?
 
 	Paramaters:
-		D: dimensional grid for amoeba; int: >0
+		D: dimension grid for amoeba; int: >0
 		N, Number of splits to compute; int >=1
 	'''
 	# Checking parameters are within bounds
@@ -29,7 +30,7 @@ def split(D, N):
 
 	# Intializeing values:
 	deadspace = set()		# Will help us keep track of space where >1 amoebas grow
-	cur_alivespace = [tuple((0 for i in range(D)))]
+	cur_alivespace = [np.zeros(D)]
 	new_alivespace = []
 	
 	print("==== 0 to 3 ====\n")
